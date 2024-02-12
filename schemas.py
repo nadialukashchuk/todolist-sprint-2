@@ -3,8 +3,6 @@ from datetime import date
 from typing import List, Optional
 from enum import Enum
 
-
-
 class PriorityEnum(str, Enum):                                  #Creating enum/import from 
     HIGH = "high"
     MEDIUM = "medium"
@@ -38,9 +36,6 @@ class UserDisplay(BaseModel):
     class Config():                                                         
         orm_mode=True      
 
-
-
-
 class TaskDisplay (BaseModel):
     content:str
     priority:PriorityEnum
@@ -53,11 +48,3 @@ class TaskDisplay (BaseModel):
     image_url_type: str   
     class Config():
         orm_mode=True
-
-
-# class Task(BaseModel): #it's used in UserTaskDisplay
-#     id:int
-#     content:str
-#     is_completed:bool
-#     class Config():
-#         orm_mode=True

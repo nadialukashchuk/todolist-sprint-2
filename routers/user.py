@@ -1,5 +1,5 @@
 from fastapi import APIRouter,Depends
-from schemas import UserDisplay,UserBase#,AllUserDisplay
+from schemas import UserDisplay,UserBase
 from sqlalchemy.orm import Session
 from db.database import get_db
 from db import db_user
@@ -28,11 +28,8 @@ def get_all_users(db:Session=Depends(get_db)):
 def get_user_by_id(id:int, db:Session=Depends(get_db)): 
         
     return db_user.get_user_by_id(id,db)
-    
-        
-#return db_user.get_user_by_username(db,id) 
 
-#update a user
+#Update a user
 @router.put('/{id}')
 def update_user(id:int, request:UserBase ,db:Session=Depends(get_db),current_user: UserBase= Depends(get_current_user)):
     return db_user.update_user(db,id,request)                                                                          

@@ -1,11 +1,8 @@
 from .database import Base
-from sqlalchemy import Column, Integer, String, Boolean, JSON
+from sqlalchemy import Column, Integer, String, Boolean, Date, Table, Enum
 from sqlalchemy.sql.schema import ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy import Enum
-
 from datetime import datetime,date
-from sqlalchemy import Date, Table
 from typing import List, Optional
 from schemas import PriorityEnum
 
@@ -27,7 +24,7 @@ class DbTask(Base):
 
     id=Column(Integer, primary_key=True, index=True)
     content=Column(String)
-    priority=Column(Enum(PriorityEnum))  # создаем Enum и добавляем наш приорити инум из скимас
+    priority=Column(Enum(PriorityEnum))                                             #create Enum add priority enum from schemas
     is_completed=Column(Boolean)
     user_id=Column(Integer, ForeignKey('Users.id'))
     user=relationship('DbUser', back_populates='items')
