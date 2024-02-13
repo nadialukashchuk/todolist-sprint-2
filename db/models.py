@@ -30,7 +30,7 @@ class DbTask(Base):
     user=relationship('DbUser', back_populates='items')
     created_date=Column(Date)
     deadline=Column(Date,nullable=True)
-    image_url= Column(String,nullable=True)
-    image_url_type = Column(String,nullable=True)
+    attachment_url= Column(String,nullable=True)
+    attachment_url_type = Column(String,nullable=True)
 
 

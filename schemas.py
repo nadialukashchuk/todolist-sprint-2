@@ -17,13 +17,12 @@ class TaskBase (BaseModel):
     content:str
     priority: PriorityEnum = PriorityEnum.MEDIUM               #default value, could be only priority enum
     is_completed:bool =False
-    creator_id:int
     created_date: date
     deadline: date 
+    attachment_url:str               #image we want to display
+    attachment_url_type:str          #relative-if upload image to API we or absolute-from the internet
+    creator_id:int
 
-    image_url:str               #image we want to display
-    image_url_type:str          #relative-if upload image to API we or absolute-from the internet
-    
 class User(BaseModel):                                                              
     id:int                                                                      
     username:str
